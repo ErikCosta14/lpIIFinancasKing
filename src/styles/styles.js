@@ -27,7 +27,7 @@ export default StyleSheet.create(
     },
     textMenu: {
         padding: 10,
-        borderRadius: 5,
+        borderRadius: 10,
     },
     textoMenuSelect: {
         backgroundColor: '#5ab334',
