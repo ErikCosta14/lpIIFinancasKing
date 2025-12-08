@@ -11,14 +11,27 @@ export default StyleSheet.create(
         alignItems: 'center',
     },
     topoImg: {
-        width:100,
-        height: 100,
-        marginLeft: 20,
+        width:150,
+        height: 150,
+        marginLeft: '5%',
     },
     topoTexto: {
         fontSize: 20,
         color: '#f1f1f1',
         marginLeft: 10,
-    }
+    },
+    menu: {
+        flexDirection: 'row',
+        marginLeft: 'auto',
+        marginRight: '5%',
+    },
+    textMenu: {
+        padding: 10,
+        borderRadius: 5,
+    },
+    textoMenuSelect: {
+        backgroundColor: '#5ab334',
+        color: '#00490e',
+    },
 }
 )
