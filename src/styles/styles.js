@@ -1,7 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create(
-{
+{   
+    page: {
+        flex: 1,
+        backgroundColor: '#f1f1f1',
+        alignItems: 'center',
+        overflow: 'scroll',
+    },
     topo: {
         marginTop: 0,
         backgroundColor: '#00490e',
