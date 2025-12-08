@@ -8,15 +8,15 @@ export default function Topo() {
     const [dash, setDash] = useState(true);
 
     return (
-        <View style={styles.topo}>
-            <Image source={LogoPreto} style={styles.topoImg}/>
+        <View style={styles.top.topo}>
+            <Image source={LogoPreto} style={styles.top.topoImg}/>
 
-            <View style={styles.menu}>
+            <View style={styles.top.menu}>
                 <TouchableOpacity onPress={() => setDash(!dash)}>
-                    <Text style={[styles.topoTexto, styles.textMenu, dash ? styles.textoMenuSelect : ""]}>Dashboard</Text>
+                    <Text style={[styles.top.topoTexto, styles.top.textMenu, dash ? styles.top.textoMenuSelect : ""]}>Dashboard</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => setDash(!dash)}>
-                    <Text style={[styles.topoTexto, styles.textMenu, !dash ? styles.textoMenuSelect : ""]}>Transações</Text>
+                    <Text style={[styles.top.topoTexto, styles.top.textMenu, !dash ? styles.top.textoMenuSelect : ""]}>Transações</Text>
                 </TouchableOpacity>
             </View>
         </View>
