@@ -1,22 +1,26 @@
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity, useWindowDimensions } from "react-native";
 import { useState } from "react";
 
-import LogoPreto from "../img/LogoPreto.svg";
+import LogoPreto from "../img/LogoPreto.png";
 import styles from "../styles/styles.js";
+import styleMobile from "../styles/styleMobile.js";
 
 export default function Topo() {
+    const {width, height} = useWindowDimensions();
     const [dash, setDash] = useState(true);
+    const isCell = width < 768;
+    const estilos = isCell ? styleMobile : styles;
 
     return (
-        <View style={styles.top.topo}>
-            <Image source={LogoPreto} style={styles.top.topoImg}/>
+        <View style={estilos.top.topo}>
+            <Image source={LogoPreto} style={estilos.top.topoImg}/>
 
-            <View style={styles.top.menu}>
+            <View style={estilos.top.menu}>
                 <TouchableOpacity onPress={() => setDash(!dash)}>
-                    <Text style={[styles.top.topoTexto, styles.top.textMenu, dash ? styles.top.textoMenuSelect : ""]}>Dashboard</Text>
+                    <Text style={[estilos.top.topoTexto, estilos.top.textMenu, dash ? estilos.top.textoMenuSelect : ""]}>Dashboard</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => setDash(!dash)}>
-                    <Text style={[styles.top.topoTexto, styles.top.textMenu, !dash ? styles.top.textoMenuSelect : ""]}>Transações</Text>
+                    <Text style={[estilos.top.topoTexto, estilos.top.textMenu, !dash ? estilos.top.textoMenuSelect : ""]}>Transações</Text>
                 </TouchableOpacity>
             </View>
         </View>

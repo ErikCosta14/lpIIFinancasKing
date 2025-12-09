@@ -1,11 +1,15 @@
-import { View, FlatList, Text, TouchableOpacity } from "react-native";
+import { View, FlatList, Text, TouchableOpacity, useWindowDimensions } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import styles from "../styles/styles.js";
 import Topo from "./Topo.js";
 import Transacao from "./Transacao.js";
+import styleMobile from '../styles/styleMobile';
 
 export default function Transacoes() {
+    const {width, height} = useWindowDimensions();
+    const isCell = width < 768;    
+    const estilos = isCell ? styleMobile : styles;
     const dados = [{id: 1, tipo: 'Receita', valor: 2500, nome: 'Salário mensal', descricao: 'Pagamento mensal do salário'},
                    {id: 2, tipo: 'Despesa', valor: 150, nome: 'Conta de luz', descricao: 'Conta da luz do mês'},
                    {id: 3, tipo: 'Despesa', valor: 200, nome: 'Supermercado', descricao: 'Compra do mês'},
@@ -13,17 +17,18 @@ export default function Transacoes() {
                    {id: 5, tipo: 'Despesa', valor: 100, nome: 'Transporte', descricao: 'Pagamento do mês de passagens'}];
     return <>
         <SafeAreaProvider>
-            <SafeAreaView style={styles.page}>
+            <SafeAreaView style={estilos.page}>
                 <Topo />
 
-                <TouchableOpacity style={[styles.button, styles.posButton]} onPress={() => {}}>
-                    <Text style={styles.text1}>Adicionar Transação</Text>
+                <TouchableOpacity style={[estilos.button, estilos.posButton]} onPress={() => {}}>
+                    <Text style={estilos.text1}>Adicionar Transação</Text>
                 </TouchableOpacity>
 
-                <View style={styles.verFin.view}>
+                <View style={estilos.verFin.view}>
                     <FlatList
                         data={dados}
                         renderItem={({item}) => <Transacao {...item}/>}
+                        contentContainerStyle={{ paddingBottom: 80 }}
                     />
                 </View>
             </SafeAreaView>
