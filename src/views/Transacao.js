@@ -8,7 +8,7 @@ export default function Transacao({id, tipo, valor, nome, descricao}) {
     const {width, height} = useWindowDimensions();
     const [receita, setReceita] = useState(tipo == 'Receita' ? true : false);
     const colorTipo = receita ? '#81cc2a' : '#cc2a2a';
-    const isCell = width < 768;    
+    const isCell = width < 1000;    
     const estilos = isCell ? styleMobile : styles;
 
     const estilo = StyleSheet.create({

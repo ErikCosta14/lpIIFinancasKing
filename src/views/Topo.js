@@ -8,7 +8,7 @@ import styleMobile from "../styles/styleMobile.js";
 export default function Topo() {
     const {width, height} = useWindowDimensions();
     const [dash, setDash] = useState(true);
-    const isCell = width < 768;
+    const isCell = width < 1000;
     const estilos = isCell ? styleMobile : styles;
 
     return (

@@ -40,10 +40,10 @@ export default StyleSheet.create(
             alignItems: 'center',
         },
         topoImg: {
-            width: '35%',
-            height: '35%',
+            width: '30%',
+            height: '30%',
             marginLeft: '5%',
-            padding: 50,
+            padding: '11%',
         },
         topoTexto: {
             fontSize: 14,

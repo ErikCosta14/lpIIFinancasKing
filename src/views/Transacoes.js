@@ -8,7 +8,7 @@ import styleMobile from '../styles/styleMobile';
 
 export default function Transacoes() {
     const {width, height} = useWindowDimensions();
-    const isCell = width < 768;    
+    const isCell = width < 1000;    
     const estilos = isCell ? styleMobile : styles;
     const dados = [{id: 1, tipo: 'Receita', valor: 2500, nome: 'Salário mensal', descricao: 'Pagamento mensal do salário'},
                    {id: 2, tipo: 'Despesa', valor: 150, nome: 'Conta de luz', descricao: 'Conta da luz do mês'},
