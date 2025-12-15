@@ -51,8 +51,4 @@ export class Transacao {
             errors
         };
     }
-
-    getValorFormatado() {
-        return parseFloat((this.valor / 100).toFixed(2));
-    }
 }

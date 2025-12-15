@@ -69,8 +69,10 @@ export const TransacaoService = {
         let saldo = 0;
         
         transacoes.forEach(t => {
-            if (t.getValorFormatado() > 0) {
-            saldo += t.getValorFormatado();
+            if (t.tipo === "receita") {
+                saldo += t.valor;
+            } else {
+                saldo -= t.valor;
             }
         });
         
@@ -82,8 +84,8 @@ export const TransacaoService = {
         let despesas = 0;
         
         transacoes.forEach(t => {
-            if (t.getValorFormatado() > 0) {
-            despesas += t.getValorFormatado();
+            if (t.tipo === "despesa") {
+                despesas += t.valor;
             }
         });
 
@@ -95,8 +97,8 @@ export const TransacaoService = {
         let receitas = 0;
 
         transacoes.forEach(t => {
-            if (t.getValorFormatado() > 0) {
-            receitas += t.getValorFormatado();
+            if (t.tipo === "receita") {
+                receitas += t.valor;
             }
         });
 
