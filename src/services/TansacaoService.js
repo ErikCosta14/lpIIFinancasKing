@@ -25,7 +25,7 @@ export const TransacaoService = {
             transacoes.push(novaTransacao);
             await AsyncStorage.setItem(
                 STORAGE_KEY,
-                JSON.stringify(transacoes.map(t => t.toJSON()))
+                JSON.stringify(transacoes.map(t => t.getValorFormatado()))
             );
 
             return novaTransacao;
@@ -55,6 +55,25 @@ export const TransacaoService = {
         } catch (error) {
             throw new Error('Erro ao buscar transação: ' + error.message);
         }
+    },
+
+    async getSaldo() {
+        const transacoes = await this.getAll();
+        let saldo = 0;
+        transacoes.map(t => saldo += t.getValorFormatado());
+        return saldo;
+    },
+
+    async getDespesas() {
+        const transacoes = await this.getAll();
+        let despesas = 0;
+        transacoes.map(t => {t.getValorFormatado() < 0 ? despesas += t.getValorFormatado() : 0});
+    },
+
+    async getReceitas() {
+        const transacoes = await this.getAll();
+        let receitas = 0;
+        transacoes.map(t => {t.getValorFormatado() >= 0 ? receitas += t.getValorFormatado() : 0});
     },
 
     async update(id, updatedData) {
