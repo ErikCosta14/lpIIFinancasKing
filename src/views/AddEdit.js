@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, useWindowDimensions, TextInput } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "../styles/styles.js";
 import Topo from "./Topo.js";
@@ -9,27 +9,27 @@ import { Transacao } from "../model/Transacao";
 import { TransacaoService } from "../services/TansacaoService";
 
 export default function AddEdit({navigation, route}) {
-    const { id, edit } = route.params;
+    const { tr, edit } = route.params;
     const {width, height} = useWindowDimensions();
     const isCell = width < 1000;
     const estilos = isCell ? styleMobile : styles;
-    const [idTransacao, setIdTransacao] = useState(id);
+    const [idTransacao, setIdTransacao] = useState("");
     const [nome, setNome] = useState("");
     const [valor, setValor] = useState("");
     const [descricao, setDescricao] = useState("");
     const [tipo, setTipo] = useState("receita");
 
-    if (edit && idTransacao !== 0) {
-        async () => {
-            const t = await TransacaoService.getById(idTransacao);
-            setNome(t.nome);
-            setValor(t.valor.toString());
-            setDescricao(t.descricao);
-            setTipo(t.tipo);
+    useEffect(() => {
+        if (edit && tr) {
+            setNome(tr.nome);
+            setValor(String(tr.valor));
+            setDescricao(tr.descricao);
+            setTipo(tr.tipo);
+            setIdTransacao(tr.id);
         }
-    }
+    }, [edit, tr]);
 
-    const transacao = new Transacao(id, nome, Number(valor), descricao, tipo);
+    const transacao = new Transacao(idTransacao, nome, Number(valor), descricao, tipo);
 
     return <>
         <SafeAreaProvider>
@@ -61,7 +61,14 @@ export default function AddEdit({navigation, route}) {
                     onChangeText={setTipo}
                 />
 
-                <TouchableOpacity onPress={async () => {await TransacaoService.create(transacao), navigation.goBack()}}>
+                <TouchableOpacity onPress={async () => {
+                    if (edit) {
+                        await TransacaoService.update(idTransacao, transacao);
+                    } else {
+                        await TransacaoService.create(transacao);
+                    }
+                    navigation.goBack();
+                }}>
                     <Text>{edit ? "Salvar Alterações" : "Adicionar Transação"}</Text>
                 </TouchableOpacity>
             </SafeAreaView>

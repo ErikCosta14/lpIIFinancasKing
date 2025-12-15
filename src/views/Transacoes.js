@@ -15,6 +15,14 @@ export default function Transacoes({navigation}) {
     const estilos = isCell ? styleMobile : styles;
     const [dados, setDados] = useState([]);
     
+    function removerTransacao() {
+        async function carregar() {
+            const  lista = await TransacaoService.getAll();
+            setDados(lista);
+        }
+        carregar();
+    }
+
     useFocusEffect(
         useCallback(() => {
             async function carregar() {
@@ -39,7 +47,7 @@ export default function Transacoes({navigation}) {
                         data={dados}
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({ item }) => (
-                            <Transacao transacao={item} navigation={navigation} />
+                            <Transacao transacao={item} navigation={navigation} onDelete={removerTransacao}/>
                         )}
                     />
                 </View>
