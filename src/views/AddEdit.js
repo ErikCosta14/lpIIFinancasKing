@@ -29,7 +29,8 @@ export default function AddEdit({navigation, route}) {
         }
     }, [edit, tr]);
 
-    const transacao = new Transacao(idTransacao, nome, Number(valor), descricao, tipo);
+    const valorNumerico = isNaN(Number(valor)) ? 0 : Number(valor);
+    const transacao = new Transacao(idTransacao, nome, valorNumerico, descricao, tipo);
 
     return <>
         <SafeAreaProvider>

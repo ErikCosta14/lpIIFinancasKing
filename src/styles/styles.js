@@ -6,6 +6,7 @@ export default StyleSheet.create(
         flex: 1,
         backgroundColor: '#f1f1f1',
         alignItems: 'center',
+        flexDirection: 'column',
         height: '100%',
     },
     button: {
@@ -66,7 +67,7 @@ export default StyleSheet.create(
     verFin: {
         view: {
             width: '100%',
-            flex: 1,
+            height: '75%',
         },
         views: {
             marginLeft: 'auto',

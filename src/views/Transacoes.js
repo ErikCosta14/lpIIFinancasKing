@@ -14,6 +14,7 @@ export default function Transacoes({navigation}) {
     const isCell = width < 1000;    
     const estilos = isCell ? styleMobile : styles;
     const [dados, setDados] = useState([]);
+    const alturaFlatList = height * 0.75;
     
     function removerTransacao() {
         async function carregar() {
@@ -42,9 +43,16 @@ export default function Transacoes({navigation}) {
                     <Text style={estilos.text1}>Adicionar Transação</Text>
                 </TouchableOpacity>
 
-                <View style={estilos.verFin.view}>
+                <View style={[estilos.verFin.view, { height: alturaFlatList, flex: undefined }]}>
                     <FlatList
                         data={dados}
+                        style={{ flex: 1 }}
+                        contentContainerStyle={{ 
+                            flexGrow: 1, 
+                            paddingBottom: 150 // Ajuste este valor (ex: 150) até que o último item fique visível
+                        }}
+                        removeClippedSubviews={true}
+                        windowSize={5}
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({ item }) => (
                             <Transacao transacao={item} navigation={navigation} onDelete={removerTransacao}/>

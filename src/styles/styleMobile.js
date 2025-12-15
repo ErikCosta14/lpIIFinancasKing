@@ -68,9 +68,7 @@ export default StyleSheet.create(
     verFin: {
         view: {
             width: '100%',
-            height: '100%',
-            flex: 1,
-            overflow: 'scroll',
+            height: '75%',
         },
         views: {
             marginLeft: 'auto',

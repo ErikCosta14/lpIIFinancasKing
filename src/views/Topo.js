@@ -17,10 +17,10 @@ export default function Topo() {
 
             <View style={estilos.top.menu}>
                 <TouchableOpacity onPress={() => setDash(!dash)}>
-                    <Text style={[estilos.top.topoTexto, estilos.top.textMenu, dash ? estilos.top.textoMenuSelect : ""]}>Dashboard</Text>
+                    <Text style={[estilos.top.topoTexto, estilos.top.textMenu, dash ? estilos.top.textoMenuSelect : null]}>Dashboard</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => setDash(!dash)}>
-                    <Text style={[estilos.top.topoTexto, estilos.top.textMenu, !dash ? estilos.top.textoMenuSelect : ""]}>Transações</Text>
+                    <Text style={[estilos.top.topoTexto, estilos.top.textMenu, !dash ? estilos.top.textoMenuSelect : null]}>Transações</Text>
                 </TouchableOpacity>
             </View>
         </View>
