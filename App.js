@@ -12,8 +12,14 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <View style={styles.container}>
-      <Topo/>
-      <Home/>
+      
+      <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Dashboard' component={Home}/>
+        <Stack.Screen name='Transações' component={Transacoes}/>
+        <Stack.Screen name='AddEdit' component={AddEdit}/>
+      </Stack.Navigator>
+    </NavigationContainer>
     </View>
   );
 }

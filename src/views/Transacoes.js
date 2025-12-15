@@ -36,10 +36,11 @@ export default function Transacoes({navigation}) {
     
     return <>
         <SafeAreaProvider>
+            <Topo navigation={navigation}/>
             <SafeAreaView style={estilos.page}>
-                <Topo />
+                
 
-                <TouchableOpacity style={[estilos.button, estilos.posButton]} onPress={() => {navigation.navigate('Add Edit', {id: 0, edit: false})}}>
+                <TouchableOpacity style={[estilos.button, estilos.posButton]} onPress={() => {navigation.navigate('AddEdit', {id: 0, edit: false})}}>
                     <Text style={estilos.text1}>Adicionar Transação</Text>
                 </TouchableOpacity>
 
@@ -49,7 +50,7 @@ export default function Transacoes({navigation}) {
                         style={{ flex: 1 }}
                         contentContainerStyle={{ 
                             flexGrow: 1, 
-                            paddingBottom: 150 // Ajuste este valor (ex: 150) até que o último item fique visível
+                            paddingBottom: 150
                         }}
                         removeClippedSubviews={true}
                         windowSize={5}

@@ -35,7 +35,7 @@ export default function AddEdit({navigation, route}) {
     return <>
         <SafeAreaProvider>
             <SafeAreaView style={estilos.page}>
-                <Topo />
+                <Topo navigation={navigation}/>
 
                 <TextInput 
                     placeholder="Digite o nome da transação"

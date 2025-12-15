@@ -35,7 +35,7 @@ export default function Transacao({ transacao, navigation, onDelete }) {
       <View style={estilos.verFin.buttons}>
         <TouchableOpacity style={estilos.verFin.buttonEdit} 
           onPress={() =>
-            navigation.navigate('Add Edit', { tr: trJson, edit: true })
+            navigation.navigate('AddEdit', { tr: trJson, edit: true })
           }>
           <Text style={estilos.text2}>Editar</Text>
         </TouchableOpacity>

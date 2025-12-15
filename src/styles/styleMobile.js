@@ -33,11 +33,14 @@ export default StyleSheet.create(
     top: {
         topo: {
             marginTop: 0,
+            width: '100%',
+            overflow: 'hidden',
             backgroundColor: '#00490e',
             width: '100%',
             height: '20%',
             flexDirection: 'row',
             alignItems: 'center',
+            paddingHorizontal: 15,
         },
         topoImg: {
             width: '30%',
