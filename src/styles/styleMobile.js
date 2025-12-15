@@ -6,6 +6,7 @@ export default StyleSheet.create(
         flex: 1,
         backgroundColor: '#f1f1f1',
         alignItems: 'center',
+        overflow: 'scroll',
         height: '100%',
     },
     button: {
@@ -39,12 +40,13 @@ export default StyleSheet.create(
             alignItems: 'center',
         },
         topoImg: {
-            width:150,
-            height: 150,
+            width: '30%',
+            height: '30%',
             marginLeft: '5%',
+            padding: '11%',
         },
         topoTexto: {
-            fontSize: 20,
+            fontSize: 14,
             color: '#f1f1f1',
             marginLeft: 10,
         },
@@ -54,7 +56,7 @@ export default StyleSheet.create(
             marginRight: '5%',
         },
         textMenu: {
-            padding: 10,
+            padding: 5,
             borderRadius: 10,
         },
         textoMenuSelect: {
@@ -66,7 +68,9 @@ export default StyleSheet.create(
     verFin: {
         view: {
             width: '100%',
+            height: '100%',
             flex: 1,
+            overflow: 'scroll',
         },
         views: {
             marginLeft: 'auto',
@@ -77,7 +81,7 @@ export default StyleSheet.create(
             borderWidth: 1,
             borrderColor: '#00490e',
             padding: 10,
-            width: '30%',
+            width: '90%',
             borderRadius: 10,
             backgroundColor: '#ffffff',
         },
