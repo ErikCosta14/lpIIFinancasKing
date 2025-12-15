@@ -1,33 +1,16 @@
-import { View, Text, TouchableOpacity, StyleSheet, useWindowDimensions } from 'react-native';
-import { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, useWindowDimensions, Platform, Alert } from 'react-native';
+import { useState } from "react";
 
 import styles from '../styles/styles';
 import styleMobile from '../styles/styleMobile';
-import { TransacaoService } from "../services/TansacaoService";
 
-export default function Transacao({ id }) {
-  const [transacao, setTransacao] = useState(null);
+export default function Transacao({ transacao, navigation }) {
   const { width } = useWindowDimensions(); // Hook SEMPRE no topo
   const isCell = width < 1000;
   const estilos = isCell ? styleMobile : styles;
 
-  const [receita, setReceita] = useState(false);
-
-  useEffect(() => {
-    async function carregar() {
-      const t = await TransacaoService.getById(id);
-      setTransacao(t);
-      if (t) {
-        setReceita(t.tipo === 'receita');
-      }
-    }
-    carregar();
-  }, [id]);
-
-  // ⚠️ AGORA SIM pode condicionar render
-  if (!transacao) return null;
-
-  const trJson = transacao.toJSON();
+  const trJson = transacao.toJSON?.() ?? transacao;
+  const receita = trJson.tipo === 'receita';
   const colorTipo = receita ? '#81cc2a' : '#cc2a2a';
 
   const estilo = StyleSheet.create({
@@ -50,7 +33,10 @@ export default function Transacao({ id }) {
       </View>
 
       <View style={estilos.verFin.buttons}>
-        <TouchableOpacity style={estilos.verFin.buttonEdit}>
+        <TouchableOpacity style={estilos.verFin.buttonEdit} 
+          onPress={() =>
+            navigation.navigate('Add Edit', { id: trJson.id, edit: true })
+          }>
           <Text style={estilos.text2}>Editar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={estilos.verFin.buttonDelete}>

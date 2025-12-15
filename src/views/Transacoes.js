@@ -16,9 +16,12 @@ export default function Transacoes({navigation}) {
     const [dados, setDados] = useState([]);
     
     useFocusEffect(
-        useCallback(async () => {
+        useCallback(() => {
+            async function carregar() {
             const lista = await TransacaoService.getAll();
             setDados(lista);
+            }
+            carregar();
         }, [])
     );
     
@@ -34,9 +37,10 @@ export default function Transacoes({navigation}) {
                 <View style={estilos.verFin.view}>
                     <FlatList
                         data={dados}
-                        keyExtractor={item => item.id.toString()}
-                        renderItem={({item}) => <Transacao id={item.id} />}
-                        contentContainerStyle={{ paddingBottom: 80 }}
+                        keyExtractor={(item) => item.id.toString()}
+                        renderItem={({ item }) => (
+                            <Transacao transacao={item} navigation={navigation} />
+                        )}
                     />
                 </View>
             </SafeAreaView>

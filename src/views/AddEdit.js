@@ -13,16 +13,27 @@ export default function AddEdit({navigation, route}) {
     const {width, height} = useWindowDimensions();
     const isCell = width < 1000;
     const estilos = isCell ? styleMobile : styles;
+    const [idTransacao, setIdTransacao] = useState(id);
     const [nome, setNome] = useState("");
     const [valor, setValor] = useState("");
     const [descricao, setDescricao] = useState("");
     const [tipo, setTipo] = useState("receita");
 
-    const transacao = new Transacao(0, nome, Number(valor), descricao, tipo);
+    if (edit && idTransacao !== 0) {
+        async () => {
+            const t = await TransacaoService.getById(idTransacao);
+            setNome(t.nome);
+            setValor(t.valor.toString());
+            setDescricao(t.descricao);
+            setTipo(t.tipo);
+        }
+    }
+
+    const transacao = new Transacao(id, nome, Number(valor), descricao, tipo);
 
     return <>
         <SafeAreaProvider>
-            <SafeAreaView>
+            <SafeAreaView style={estilos.page}>
                 <Topo />
 
                 <TextInput 

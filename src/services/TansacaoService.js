@@ -25,7 +25,7 @@ export const TransacaoService = {
             transacoes.push(novaTransacao);
             await AsyncStorage.setItem(
                 STORAGE_KEY,
-                JSON.stringify(transacoes.map(t => t.getValorFormatado()))
+                JSON.stringify(transacoes.map(t => t.toJSON()))
             );
 
             return novaTransacao;
@@ -40,14 +40,21 @@ export const TransacaoService = {
             if (!data) return [];
 
             const jsonArray = JSON.parse(data);
-            const transacoes = jsonArray.map(json => Transacao.fromJSON(json));
-            return transacoes;
+
+            if (!Array.isArray(jsonArray)) return [];
+
+            return jsonArray
+            .filter(j => j && j.id != null)
+            .map(j => Transacao.fromJSON(j));
         } catch (error) {
             throw new Error('Erro ao buscar transações: ' + error.message);
         }
     },
 
     async getById(id) {
+        if (!transacao) {
+           throw new Error('Transação não encontrada');
+        }
         try {
             const transacoes = await this.getAll();
             const transacao = transacoes.find(t => t.id === id);
@@ -60,20 +67,40 @@ export const TransacaoService = {
     async getSaldo() {
         const transacoes = await this.getAll();
         let saldo = 0;
-        transacoes.map(t => saldo += t.getValorFormatado());
+        
+        transacoes.forEach(t => {
+            if (t.getValorFormatado() > 0) {
+            saldo += t.getValorFormatado();
+            }
+        });
+        
         return saldo;
     },
 
     async getDespesas() {
         const transacoes = await this.getAll();
         let despesas = 0;
-        transacoes.map(t => {t.getValorFormatado() < 0 ? despesas += t.getValorFormatado() : 0});
+        
+        transacoes.forEach(t => {
+            if (t.getValorFormatado() > 0) {
+            despesas += t.getValorFormatado();
+            }
+        });
+
+        return despesas;
     },
 
     async getReceitas() {
         const transacoes = await this.getAll();
         let receitas = 0;
-        transacoes.map(t => {t.getValorFormatado() >= 0 ? receitas += t.getValorFormatado() : 0});
+
+        transacoes.forEach(t => {
+            if (t.getValorFormatado() > 0) {
+            receitas += t.getValorFormatado();
+            }
+        });
+
+        return receitas;
     },
 
     async update(id, updatedData) {
