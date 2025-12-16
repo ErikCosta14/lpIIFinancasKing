@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
 
-export default StyleSheet.create(
-{   
+export default StyleSheet.create({
+    homeContainer: {
+        flex: 1,
+    },
     scrollView: {
         flex: 1,
         backgroundColor: '#f5f5f5',
@@ -11,6 +13,7 @@ export default StyleSheet.create(
         alignItems: 'center',
         padding: 20,
         paddingTop: 40,
+        flex: 1,
     },
     content: {
         flexGrow: 1,
@@ -84,6 +87,10 @@ export default StyleSheet.create(
         shadowOpacity: 0.1,
         shadowRadius: 3.84,
         elevation: 5,
+        flex: 1,
+    },
+    transacoesScroll: {
+        flex: 1,
     },
     transacoesTitulo: {
         fontSize: 18,
@@ -102,11 +109,16 @@ export default StyleSheet.create(
     transacaoInfo: {
         flex: 1,
     },
-    transacaoDescricao: {
+    transacaoNome: {
         fontSize: 16,
         color: '#333',
-        fontWeight: '500',
+        fontWeight: 'bold',
         marginBottom: 4,
+    },
+    transacaoDescricao: {
+        fontSize: 14,
+        color: '#666',
+        fontWeight: '400',
     },
     transacaoData: {
         fontSize: 12,
@@ -116,6 +128,70 @@ export default StyleSheet.create(
         fontSize: 16,
         fontWeight: 'bold',
         marginLeft: 10,
+    },
+    transacoesPageWrapper: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: '#f5f5f5',
+    },
+    transacoesPageTitulo: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 20,
+    },
+    addTransacaoButton: {
+        backgroundColor: '#00490e',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        marginBottom: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 3.84,
+        elevation: 3,
+    },
+    addTransacaoButtonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    transacoesListWrapper: {
+        flex: 1,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        padding: 15,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    tabBar: {
+        backgroundColor: '#fff',
+        borderTopWidth: 1,
+        borderTopColor: '#e0e0e0',
+        height: 70,
+        paddingBottom: 10,
+        paddingTop: 10,
+    },
+    tabBarLabel: {
+        fontSize: 12,
+        fontWeight: '600',
+        marginTop: 4,
+    },
+    tabBarIcon: {
+        marginTop: 5,
+    },
+    tabIcon: {
+        fontSize: 20,
     },
     valorPositivo: {
         color: '#2ecc71',
@@ -131,10 +207,9 @@ export default StyleSheet.create(
     },
     page: {
         flex: 1,
-        backgroundColor: '#f1f1f1',
+        backgroundColor: '#f5f5f5',
         alignItems: 'center',
         flexDirection: 'column',
-        height: '70%',
     },
     button: {
         padding: 10,
@@ -157,6 +232,130 @@ export default StyleSheet.create(
         marginRight: '5%',
     },
 
+    // Estilos para o formulário AddEdit
+    formContainer: {
+        width: '90%',
+        maxWidth: 500,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        padding: 30,
+        marginTop: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    formTitulo: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 30,
+        textAlign: 'center',
+    },
+    inputContainer: {
+        marginBottom: 20,
+    },
+    inputLabel: {
+        fontSize: 14,
+        color: '#666',
+        marginBottom: 8,
+        fontWeight: '500',
+    },
+    input: {
+        backgroundColor: '#f5f5f5',
+        borderRadius: 8,
+        padding: 15,
+        fontSize: 16,
+        color: '#333',
+        borderWidth: 1,
+        borderColor: '#e0e0e0',
+    },
+    inputFocused: {
+        borderColor: '#00490e',
+        backgroundColor: '#fff',
+    },
+    tipoContainer: {
+        flexDirection: 'row',
+        gap: 15,
+        marginBottom: 20,
+    },
+    tipoButton: {
+        flex: 1,
+        padding: 15,
+        borderRadius: 8,
+        borderWidth: 2,
+        borderColor: '#e0e0e0',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+    tipoButtonSelected: {
+        borderColor: '#00490e',
+        backgroundColor: '#f0f8f0',
+    },
+    tipoButtonReceita: {
+        borderColor: '#2ecc71',
+        backgroundColor: '#e8f8f0',
+    },
+    tipoButtonDespesa: {
+        borderColor: '#e74c3c',
+        backgroundColor: '#fdeaea',
+    },
+    tipoText: {
+        fontSize: 16,
+        color: '#666',
+        fontWeight: '500',
+    },
+    tipoTextSelected: {
+        color: '#00490e',
+        fontWeight: 'bold',
+    },
+    tipoTextReceita: {
+        color: '#2ecc71',
+        fontWeight: 'bold',
+    },
+    tipoTextDespesa: {
+        color: '#e74c3c',
+        fontWeight: 'bold',
+    },
+    submitButton: {
+        backgroundColor: '#00490e',
+        padding: 18,
+        borderRadius: 10,
+        alignItems: 'center',
+        marginTop: 10,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 3.84,
+        elevation: 3,
+    },
+    submitButtonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    cancelButton: {
+        backgroundColor: 'transparent',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        marginTop: 10,
+        borderWidth: 2,
+        borderColor: '#e0e0e0',
+    },
+    cancelButtonText: {
+        color: '#666',
+        fontSize: 16,
+        fontWeight: '500',
+    },
+
     top: {
         topo: {
             marginTop: 0,
@@ -168,7 +367,8 @@ export default StyleSheet.create(
         topoImg: {
             width:150,
             height: 150,
-            marginLeft: '5%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
         },
         topoTexto: {
             fontSize: 20,
@@ -254,5 +454,4 @@ export default StyleSheet.create(
             color: '#1d1c1c64',
         },
     },
-}
-)
+})

@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="051da436-6fc0-4d6e-9df1-cd481801148c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/TabNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Transacao.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Transacao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TansacaoService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TansacaoService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/styleMobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/styleMobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/AddEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AddEdit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Topo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Topo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Transacoes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Transacoes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +45,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "styles__add__edit",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Alvaro/Documents/BSI/Linguagem de Programação 2/react/trabalho/lpIIFinancasKing",
     "node.js.detected.package.eslint": "true",
@@ -81,7 +85,8 @@
       <workItem from="1765797312772" duration="952000" />
       <workItem from="1765798282768" duration="1000" />
       <workItem from="1765798580806" duration="3826000" />
-      <workItem from="1765803198435" duration="4946000" />
+      <workItem from="1765803198435" duration="5154000" />
+      <workItem from="1765847220352" duration="3489000" />
     </task>
     <servers />
   </component>

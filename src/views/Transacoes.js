@@ -11,14 +11,13 @@ import { TransacaoService } from "../services/TansacaoService.js";
 
 export default function Transacoes({navigation}) {
     const {width, height} = useWindowDimensions();
-    const isCell = width < 1000;    
+    const isCell = width < 1000;
     const estilos = isCell ? styleMobile : styles;
     const [dados, setDados] = useState([]);
-    const alturaFlatList = height * 0.75;
-    
+
     function removerTransacao() {
         async function carregar() {
-            const  lista = await TransacaoService.getAll();
+            const lista = await TransacaoService.getAll();
             setDados(lista);
         }
         carregar();
@@ -27,40 +26,48 @@ export default function Transacoes({navigation}) {
     useFocusEffect(
         useCallback(() => {
             async function carregar() {
-            const lista = await TransacaoService.getAll();
-            setDados(lista);
+                const lista = await TransacaoService.getAll();
+                setDados(lista);
             }
             carregar();
         }, [])
     );
-    
-    return <>
+
+    return (
         <SafeAreaProvider>
-            <Topo navigation={navigation}/>
-            <SafeAreaView style={estilos.page}>
-                
+            <View style={estilos.homeContainer}>
+                <Topo/>
+                <SafeAreaView style={estilos.transacoesPageWrapper}>
+                    <Text style={estilos.transacoesPageTitulo}>Todas as Transações</Text>
 
-                <TouchableOpacity style={[estilos.button, estilos.posButton]} onPress={() => {navigation.navigate('AddEdit', {id: 0, edit: false})}}>
-                    <Text style={estilos.text1}>Adicionar Transação</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        style={estilos.addTransacaoButton}
+                        onPress={() => {navigation.navigate('AddEdit', {tr: null, edit: false})}}
+                    >
+                        <Text style={estilos.addTransacaoButtonText}>+ Adicionar Transação</Text>
+                    </TouchableOpacity>
 
-                <View style={[estilos.verFin.view, { height: alturaFlatList, flex: undefined }]}>
-                    <FlatList
-                        data={dados}
-                        style={{ flex: 1 }}
-                        contentContainerStyle={{ 
-                            flexGrow: 1, 
-                            paddingBottom: 150
-                        }}
-                        removeClippedSubviews={true}
-                        windowSize={5}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={({ item }) => (
-                            <Transacao transacao={item} navigation={navigation} onDelete={removerTransacao}/>
-                        )}
-                    />
-                </View>
-            </SafeAreaView>
+                    <View style={estilos.transacoesListWrapper}>
+                        <FlatList
+                            data={dados}
+                            style={{ flex: 1 }}
+                            contentContainerStyle={{
+                                flexGrow: 1,
+                                paddingBottom: 20
+                            }}
+                            removeClippedSubviews={true}
+                            windowSize={5}
+                            keyExtractor={(item) => item.id.toString()}
+                            renderItem={({ item }) => (
+                                <Transacao transacao={item} navigation={navigation} onDelete={removerTransacao}/>
+                            )}
+                            ListEmptyComponent={
+                                <Text style={estilos.mensagemVazia}>Nenhuma transação encontrada</Text>
+                            }
+                        />
+                    </View>
+                </SafeAreaView>
+            </View>
         </SafeAreaProvider>
-    </>
+    );
 }
