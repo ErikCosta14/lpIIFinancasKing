@@ -2,12 +2,73 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create(
 {
-    page: {
+        formContainer: {
+        width: '90%',
+        height: '70%',
+        maxWidth: 500,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        padding: 30,
+        marginTop: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    formTitulo: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 30,
+        textAlign: 'center',
+    },
+    homeContainer: {
         flex: 1,
+    },
+    transacoesContainer: {
+        width: '100%',
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        padding: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 3.84,
+        elevation: 5,
+        flex: 1,
+    },
+    transacoesScroll: {
+        flex: 1,
+    },
+    transacoesPageWrapper: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: '#f5f5f5',
+    },
+    transacoesListWrapper: {
+        flex: 1,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        padding: 15,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    page: {
+        height: '80%',
         backgroundColor: '#f1f1f1',
-        alignItems: 'center',
-        overflow: 'scroll',
-        height: '100%',
     },
     button: {
         padding: 10,
