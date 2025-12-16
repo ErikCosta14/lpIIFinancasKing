@@ -37,7 +37,11 @@ export default function AddEdit({navigation, route}) {
             <SafeAreaView style={estilos.page}>
                 <Topo navigation={navigation}/>
 
-                <ScrollView style={{flex: 1, width: '100%'}} contentContainerStyle={{alignItems: 'center'}}>
+                <ScrollView style={{flex: 1, width: '100%'}} contentContainerStyle={{
+                        alignItems: 'center',
+                        flexGrow: 1, 
+                        paddingBottom: 150,
+                    }}>
                     <View style={estilos.formContainer}>
                         <Text style={estilos.formTitulo}>
                             {edit ? "Editar Transação" : "Nova Transação"}

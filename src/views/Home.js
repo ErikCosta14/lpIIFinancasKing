@@ -43,6 +43,7 @@ export default function Home({ navigation }) {
     return (
         <View style={styles.homeContainer}>
             <Topo/>
+            <ScrollView style={styles.scrollView} contentContainerStyle={{styles: styles.content}}>
             <View style={styles.container}>
                 <Text style={styles.titulo}>Saldo Atual</Text>
                 <Text style={[styles.saldo, saldo >= 0 ? styles.positivo : styles.negativo]}>
@@ -98,6 +99,7 @@ export default function Home({ navigation }) {
                     </ScrollView>
                 </View>
             </View>
+            </ScrollView>
         </View>
     );
 }

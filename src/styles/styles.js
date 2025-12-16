@@ -235,6 +235,7 @@ export default StyleSheet.create({
     // Estilos para o formulário AddEdit
     formContainer: {
         width: '90%',
+        height: '170%',
         maxWidth: 500,
         backgroundColor: '#fff',
         borderRadius: 10,
